@@ -1,0 +1,11 @@
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\bin\Debug\net7.0\ManagementApp.Domain.deps.json
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\bin\Debug\net7.0\ManagementApp.Domain.dll
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\bin\Debug\net7.0\ManagementApp.Domain.pdb
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ManagementApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ManagementApp.Domain.AssemblyInfoInputs.cache
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ManagementApp.Domain.AssemblyInfo.cs
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ManagementApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ManagementApp.Domain.dll
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\refint\ManagementApp.Domain.dll
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ManagementApp.Domain.pdb
+C:\Users\Alan Barbosa\Documents\ManagementApp\Backend\ManagementApp\ManagementApp.Domain\obj\Debug\net7.0\ref\ManagementApp.Domain.dll

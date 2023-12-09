@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ManagementApp.Application/1.0.0": {
+        "dependencies": {
+          "ManagementApp.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ManagementApp.Application.dll": {}
+        }
+      },
+      "ManagementApp.Domain/1.0.0": {
+        "runtime": {
+          "ManagementApp.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ManagementApp.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ManagementApp.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
