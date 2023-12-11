@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj": {}
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj": {
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj",
         "projectName": "ManagementApp.Api",
-        "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj",
+        "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\ManagementApp.Api.csproj",
         "packagesPath": "C:\\Users\\Alan Barbosa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\obj\\",
+        "outputPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,14 +33,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj": {
-                "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj"
+              "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj": {
+                "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj"
               },
-              "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj"
+              "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj"
               },
-              "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj"
+              "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj"
               }
             }
           }
@@ -58,6 +58,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -111,14 +115,14 @@
         }
       }
     },
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj": {
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj",
         "projectName": "ManagementApp.Application",
-        "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj",
+        "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj",
         "packagesPath": "C:\\Users\\Alan Barbosa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\obj\\",
+        "outputPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -140,8 +144,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj"
+              "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj"
               }
             }
           }
@@ -155,6 +159,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -175,14 +185,14 @@
         }
       }
     },
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
         "projectName": "ManagementApp.Domain",
-        "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
+        "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Alan Barbosa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -215,6 +225,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -235,14 +251,14 @@
         }
       }
     },
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj": {
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj",
         "projectName": "ManagementApp.Infrastructure",
-        "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\ManagementApp.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Alan Barbosa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -264,11 +280,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj": {
-                "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj"
+              "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj": {
+                "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Application\\ManagementApp.Application.csproj"
               },
-              "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj"
+              "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj"
               }
             }
           }
@@ -283,6 +299,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.1.39, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -302,6 +322,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             }
           },
           "imports": [

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {}
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
+    "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
         "projectName": "ManagementApp.Domain",
-        "projectPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
+        "projectPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\ManagementApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Alan Barbosa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alan Barbosa\\Documents\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Alan Barbosa\\Desktop\\ManagementApp\\ManagementApp\\Backend\\ManagementApp\\ManagementApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

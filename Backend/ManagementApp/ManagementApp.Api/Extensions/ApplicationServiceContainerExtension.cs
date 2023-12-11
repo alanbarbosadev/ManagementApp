@@ -11,10 +11,10 @@ namespace ManagementApp.Api.Extensions
         {
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            services.AddDbContext<ManagementAppContext>(options => options.UseSqlServer(configuration.GetConnectionString("Default")));
-            services.AddScoped<EmployeeRepository>();
+            services.AddDbContext<ManagementAppContext>(options => options.UseSqlServer(configuration.GetConnectionString("ManagementApp")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddCors(options => options.AddPolicy("ManagementAppPolicy", policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
 
             return services;
         }

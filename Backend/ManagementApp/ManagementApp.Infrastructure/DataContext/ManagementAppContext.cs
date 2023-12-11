@@ -6,7 +6,7 @@ namespace ManagementApp.Infrastructure.DataContext
 {
     public class ManagementAppContext : DbContext
     {
-        public ManagementAppContext(DbContextOptions options) : base(options)
+        public ManagementAppContext(DbContextOptions<ManagementAppContext> options) : base(options)
         {
         }
 

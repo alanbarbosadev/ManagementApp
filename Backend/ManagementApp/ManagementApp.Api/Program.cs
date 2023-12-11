@@ -1,4 +1,5 @@
 using ManagementApp.Api.Extensions;
+using ManagementApp.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-ApplicationServiceContainerExtension.AddApplicationServices(builder.Services, builder.Configuration);
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 
@@ -17,7 +19,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseHttpsRedirection();
+
+app.UseCors("ManagementAppPolicy");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

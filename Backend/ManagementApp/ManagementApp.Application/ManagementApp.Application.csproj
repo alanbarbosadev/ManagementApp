@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ManagementApp.Domain\ManagementApp.Domain.csproj" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\ManagementApp.Domain\ManagementApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>
