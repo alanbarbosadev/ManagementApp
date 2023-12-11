@@ -44,7 +44,7 @@ namespace ManagementApp.Infrastructure.Services
                 issuer: jwtSettings.Issuer,
                 audience: jwtSettings.Audience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(jwtSettings.DurationInMinutes),
+                expires: DateTime.UtcNow.AddMinutes(jwtSettings.DurationInMinutes),
                 signingCredentials: signingCredentials
                 );
 

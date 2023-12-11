@@ -1,7 +1,10 @@
 ﻿using ManagementApp.Application.Services;
+using ManagementApp.Domain.Exceptions;
 using ManagementApp.Domain.Models.Identity;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace ManagementApp.Infrastructure.Services
@@ -24,6 +27,18 @@ namespace ManagementApp.Infrastructure.Services
             var user = await _userManager.FindByEmailAsync(email);
 
             return user;
+        }
+
+        public async Task CheckUserToken()
+        {
+            var token = await _httpContextAccessor.HttpContext.GetTokenAsync("access_token");
+
+            var tokenValidTo = new JwtSecurityTokenHandler().ReadJwtToken(token).ValidTo;
+
+            if (tokenValidTo < DateTime.UtcNow)
+            {
+                throw new TokenExpiredException();
+            }
         }
     }
 }

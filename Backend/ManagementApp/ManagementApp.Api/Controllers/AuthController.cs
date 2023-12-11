@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
+using ManagementApp.Api.Errors;
 using ManagementApp.Api.ViewModels;
 using ManagementApp.Application.Models;
 using ManagementApp.Application.Services;
+using ManagementApp.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseApiController
     {
         private readonly IAuthService _authService;
         private readonly IUserService _userService;
@@ -28,12 +28,17 @@ namespace ManagementApp.Api.Controllers
         }
 
         [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<RegisterResponse>> Register(RegisterRequest registerRequest)
         {
             return Ok(await _authService.Register(registerRequest));
         }
 
         [HttpGet("currentUser")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(TokenExpiredException), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<UserViewModel>> GetCurrentUser()
         {
             var user = await _userService.GetCurrentUser();

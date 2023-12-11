@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ActivityController : ControllerBase
+    public class ActivityController : BaseApiController
     {
     }
 }

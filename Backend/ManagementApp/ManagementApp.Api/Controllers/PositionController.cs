@@ -2,14 +2,11 @@
 using ManagementApp.Api.ViewModels.Position;
 using ManagementApp.Application.Repositories;
 using ManagementApp.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PositionController : ControllerBase
+    public class PositionController : BaseApiController
     {
         private readonly IRepository<Position> _positionRepository;
         private readonly IMapper _mapper;

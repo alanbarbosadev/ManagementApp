@@ -6,9 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class DepartmentController : ControllerBase
+    public class DepartmentController : BaseApiController
     {
         private readonly IRepository<Department> _departmentRepository;
         private readonly IMapper _mapper;

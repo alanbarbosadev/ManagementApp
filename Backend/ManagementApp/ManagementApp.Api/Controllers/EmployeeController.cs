@@ -2,23 +2,25 @@
 using ManagementApp.Api.Helpers;
 using ManagementApp.Api.ViewModels.Employee;
 using ManagementApp.Application.Repositories;
+using ManagementApp.Application.Services;
 using ManagementApp.Application.Specifications.Employees;
+using ManagementApp.Domain.Exceptions;
 using ManagementApp.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EmployeeController : ControllerBase
+    public class EmployeeController : BaseApiController
     {
         private readonly IRepository<Employee> _employeeRepository;
+        private readonly IUserService _userService;
         private readonly IMapper _mapper;
 
-        public EmployeeController(IRepository<Employee> employeeRepository, IMapper mapper)
+        public EmployeeController(IRepository<Employee> employeeRepository, IUserService userService, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _userService = userService;
             _mapper = mapper;
         }
 
