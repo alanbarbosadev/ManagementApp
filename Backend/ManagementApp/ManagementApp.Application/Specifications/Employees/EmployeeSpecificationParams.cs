@@ -15,6 +15,7 @@
         public Guid? DepartmentId { get; set; }
         public Guid? PositionId { get; set; }
         public string Sort { get; set; }
+
         private string _search;
 
         public string Search

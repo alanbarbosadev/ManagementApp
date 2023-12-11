@@ -1,8 +1,7 @@
 ﻿using ManagementApp.Domain.Models.Identity;
+using ManagementApp.Infrastructure.Identity.Mappings;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
-using System.Reflection;
 
 namespace ManagementApp.Infrastructure.Identity
 {
@@ -16,7 +15,11 @@ namespace ManagementApp.Infrastructure.Identity
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfiguration(new AppUserMapping());
+            modelBuilder.ApplyConfiguration(new RoleMapping());
+            modelBuilder.ApplyConfiguration(new AppUserRoleMapping());
+
+            //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -22,98 +22,6 @@ namespace ManagementApp.Infrastructure.Identity.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ActivityEmployee", b =>
-                {
-                    b.Property<Guid>("ActivitiesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("EmployeesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ActivitiesId", "EmployeesId");
-
-                    b.HasIndex("EmployeesId");
-
-                    b.ToTable("ActivityEmployee");
-                });
-
-            modelBuilder.Entity("ManagementApp.Domain.Models.Activity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("date");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Activity");
-                });
-
-            modelBuilder.Entity("ManagementApp.Domain.Models.Department", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Department");
-                });
-
-            modelBuilder.Entity("ManagementApp.Domain.Models.Employee", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Birthday")
-                        .HasColumnType("date");
-
-                    b.Property<Guid>("DepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("HiredAt")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<Guid>("PositionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("PositionId");
-
-                    b.ToTable("Employee");
-                });
-
             modelBuilder.Entity("ManagementApp.Domain.Models.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -186,14 +94,15 @@ namespace ManagementApp.Infrastructure.Identity.Migrations
                         {
                             Id = "efe13601-f3a7-487b-96f8-e70e14f4d480",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8a8ed03-a389-49c9-b652-598c8334fc0f",
+                            ConcurrencyStamp = "52fbab19-a9f2-4998-866d-333d6a1bf554",
+                            DisplayName = "admin",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDkPFTnpkOEYhMfZ5YGTjtQeVgNOBzKNwQiK9FywfL7Bdt/eT4sMaaRfsHB/rfPGSQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOPdXeJpS93n3gK3hxZu67sJvsvMMdOnpnUXD5kBt5YG2gwyGxo2XluT/dCbtriMzw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "da83c70a-82b2-432f-a22a-bfe5f4a886d3",
+                            SecurityStamp = "02f83d06-75c3-4996-af06-c7c7f3233b5b",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -201,32 +110,18 @@ namespace ManagementApp.Infrastructure.Identity.Migrations
                         {
                             Id = "7aa6159b-28ce-4139-91cb-3ef9125e2e31",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e2b3e383-0c11-428c-ac84-be5ab20c016b",
+                            ConcurrencyStamp = "f00b6fcf-1ef1-4254-a45b-92cd40e19b21",
+                            DisplayName = "user",
                             Email = "user@localhost.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDtxs009ncxxL2SbJiyFuLb1L5fJCzlIP9PmQQfkF7UDKu7D1EuTO82eObyk5td41w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOPZaxz569G97IwzEzNOAamgD9vMbRCpFLF6iYotR4ZhShLviR07XUgbYshojhulEA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b3b25c67-e624-4985-9df3-f145a6738df2",
+                            SecurityStamp = "68087c60-7c7d-4d1f-b861-bee043b96737",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });
-                });
-
-            modelBuilder.Entity("ManagementApp.Domain.Models.Position", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Position");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -388,40 +283,6 @@ namespace ManagementApp.Infrastructure.Identity.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ActivityEmployee", b =>
-                {
-                    b.HasOne("ManagementApp.Domain.Models.Activity", null)
-                        .WithMany()
-                        .HasForeignKey("ActivitiesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ManagementApp.Domain.Models.Employee", null)
-                        .WithMany()
-                        .HasForeignKey("EmployeesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ManagementApp.Domain.Models.Employee", b =>
-                {
-                    b.HasOne("ManagementApp.Domain.Models.Department", "Department")
-                        .WithMany("Employees")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.HasOne("ManagementApp.Domain.Models.Position", "Position")
-                        .WithMany()
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Department");
-
-                    b.Navigation("Position");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -471,11 +332,6 @@ namespace ManagementApp.Infrastructure.Identity.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ManagementApp.Domain.Models.Department", b =>
-                {
-                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

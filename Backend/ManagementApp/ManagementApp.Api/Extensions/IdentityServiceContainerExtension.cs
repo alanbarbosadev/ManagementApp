@@ -17,8 +17,10 @@ namespace ManagementApp.Api.Extensions
         {
             services.AddDbContext<AppIdentityContext>(options => options.UseSqlServer(configuration.GetConnectionString("ManagementAppIdentity")));
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityContext>()

@@ -4,6 +4,7 @@ using ManagementApp.Api.ViewModels.Employee;
 using ManagementApp.Application.Repositories;
 using ManagementApp.Application.Specifications.Employees;
 using ManagementApp.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
@@ -22,6 +23,7 @@ namespace ManagementApp.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<Pagination<EmployeeViewModel>>> GetAllEmployees([FromQuery] EmployeeSpecificationParams employeeSpecificationParams)
         {
             var specification = new EmployeesWithDepartmentAndPositionSpecification(employeeSpecificationParams);

@@ -17,6 +17,7 @@ namespace ManagementApp.Infrastructure.Identity.Mappings
                 Email = "admin@localhost.com",
                 NormalizedEmail = "ADMIN@LOCALHOST.COM",
                 UserName = "admin@localhost.com",
+                DisplayName = "admin",
                 PasswordHash = hasher.HashPassword(null, "12345")
             },
             new AppUser()
@@ -25,6 +26,7 @@ namespace ManagementApp.Infrastructure.Identity.Mappings
                 Email = "user@localhost.com",
                 NormalizedEmail = "USER@LOCALHOST.COM",
                 UserName = "user@localhost.com",
+                DisplayName = "user",
                 PasswordHash = hasher.HashPassword(null, "12345")
             });
         }

@@ -1,4 +1,5 @@
 ﻿using ManagementApp.Domain.Models;
+using ManagementApp.Infrastructure.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -20,7 +21,12 @@ namespace ManagementApp.Infrastructure.DataContext
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfiguration(new EmployeeMapping());
+            modelBuilder.ApplyConfiguration(new DepartmentMapping());
+            modelBuilder.ApplyConfiguration(new PositionMapping());
+            modelBuilder.ApplyConfiguration(new ActivityMapping());
+
+            //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
