@@ -1,4 +1,4 @@
-﻿using ManagementApp.Application.Models;
+﻿using ManagementApp.Application.Shared;
 using ManagementApp.Domain.Models.Identity;
 using System.IdentityModel.Tokens.Jwt;
 

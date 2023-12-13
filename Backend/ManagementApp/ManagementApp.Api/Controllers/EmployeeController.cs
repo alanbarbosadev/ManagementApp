@@ -1,11 +1,10 @@
-﻿using AutoMapper;
-using ManagementApp.Api.Helpers;
-using ManagementApp.Api.ViewModels.Employee;
-using ManagementApp.Application.Repositories;
-using ManagementApp.Application.Services;
+﻿using ManagementApp.Application.Features.Employees.Commands.CreateEmployee;
+using ManagementApp.Application.Features.Employees.Queries.GetAllEmployeesWithSpecification;
+using ManagementApp.Application.Features.Employees.Queries.GetEmployeeByIdWithSpecification;
+using ManagementApp.Application.Helpers;
+using ManagementApp.Application.Shared.Dtos;
 using ManagementApp.Application.Specifications.Employees;
-using ManagementApp.Domain.Exceptions;
-using ManagementApp.Domain.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,52 +12,33 @@ namespace ManagementApp.Api.Controllers
 {
     public class EmployeeController : BaseApiController
     {
-        private readonly IRepository<Employee> _employeeRepository;
-        private readonly IUserService _userService;
-        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public EmployeeController(IRepository<Employee> employeeRepository, IUserService userService, IMapper mapper)
+        public EmployeeController(IMediator mediator)
         {
-            _employeeRepository = employeeRepository;
-            _userService = userService;
-            _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<Pagination<EmployeeViewModel>>> GetAllEmployees([FromQuery] EmployeeSpecificationParams employeeSpecificationParams)
+        public async Task<ActionResult<Pagination<EmployeeDto>>> GetAllEmployees([FromQuery] EmployeeSpecificationParams employeeSpecificationParams)
         {
-            var specification = new EmployeesWithDepartmentAndPositionSpecification(employeeSpecificationParams);
+            var employees = await _mediator.Send(new GetAllEmployeesWithSpecificationQuery(employeeSpecificationParams));
 
-            var specificationForCount = new EmployeesForCountSpecification(employeeSpecificationParams);
-
-            var employees = await _employeeRepository.GetAllWithSpecificationAsync(specification);
-
-            var count = await _employeeRepository.CountAsync(specificationForCount);
-
-            var data = _mapper.Map<IReadOnlyList<EmployeeViewModel>>(employees);
-
-            return Ok(new Pagination<EmployeeViewModel>(employeeSpecificationParams.CurrentPage, employeeSpecificationParams.PageSize, count, data));
+            return Ok(employees);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<EmployeeViewModel>> GetEmployeeById(Guid id)
+        public async Task<ActionResult<EmployeeDto>> GetEmployeeById(Guid id)
         {
-            var specification = new EmployeesWithDepartmentAndPositionSpecification(id);
+            var employee = await _mediator.Send(new GetEmployeeByIdWithSpecificationQuery(id));
 
-            var employee = await _employeeRepository.GetByIdWithSpecificationAsync(specification);
-
-            return Ok(_mapper.Map<EmployeeViewModel>(employee));
+            return Ok(employee);
         }
 
         [HttpPost]
-        public async Task<ActionResult<EmployeeViewModel>> CreateEmployee(CreateEmployeeViewModel createEmployeeViewModel)
+        public async Task<ActionResult> CreateEmployee(CreateEmployeeCommand createEmployeeCommand)
         {
-            var employee = _mapper.Map<Employee>(createEmployeeViewModel);
-
-            await _employeeRepository.AddAsync(employee);
-
-            return Ok(_mapper.Map<EmployeeViewModel>(employee));
+            return Ok(await _mediator.Send(createEmployeeCommand));
         }
     }
 }

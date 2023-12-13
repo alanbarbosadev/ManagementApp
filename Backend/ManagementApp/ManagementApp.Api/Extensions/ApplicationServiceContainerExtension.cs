@@ -4,7 +4,7 @@ using ManagementApp.Infrastructure.DataContext;
 using ManagementApp.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace ManagementApp.Api.Extensions
 {
@@ -15,6 +15,7 @@ namespace ManagementApp.Api.Extensions
             services.AddDbContext<ManagementAppContext>(options => options.UseSqlServer(configuration.GetConnectionString("ManagementApp")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
             services.AddCors(options => options.AddPolicy("ManagementAppPolicy", policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
             services.Configure<ApiBehaviorOptions>(options =>
             {

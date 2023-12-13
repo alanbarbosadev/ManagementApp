@@ -1,36 +1,35 @@
 ﻿using AutoMapper;
-using ManagementApp.Api.ViewModels.Department;
+using ManagementApp.Application.Features.Departments.Commands.CreateDepartment;
+using ManagementApp.Application.Features.Departments.Queries.GetAllDepartments;
 using ManagementApp.Application.Repositories;
+using ManagementApp.Application.Shared.Dtos;
 using ManagementApp.Domain.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
     public class DepartmentController : BaseApiController
     {
-        private readonly IRepository<Department> _departmentRepository;
-        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public DepartmentController(IRepository<Department> departmentRepository, IMapper mapper)
+        public DepartmentController(IMediator mediator)
         {
-            _departmentRepository = departmentRepository;
-            _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet()]
-        public async Task<ActionResult<IReadOnlyList<DepartmentViewModel>>> GetAllDepartments()
+        public async Task<ActionResult<IReadOnlyList<DepartmentDto>>> GetAllDepartments()
         {
-            return Ok(_mapper.Map<IReadOnlyList<DepartmentViewModel>>(await _departmentRepository.GetAllAsync()));
+            return Ok(await _mediator.Send(new GetAllDepartmentsQuery()));
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<DepartmentViewModel>> CreateDepartment(CreateDepartmentViewModel createDepartmentViewModel)
+        public async Task<ActionResult> CreateDepartment(CreateDepartmentCommand createDepartmentCommand)
         {
-            var department = _mapper.Map<Department>(createDepartmentViewModel);
+            await _mediator.Send(createDepartmentCommand);
 
-            await _departmentRepository.AddAsync(department);
-
-            return Ok(_mapper.Map<DepartmentViewModel>(department));
+            return NoContent();
         }
     }
 }

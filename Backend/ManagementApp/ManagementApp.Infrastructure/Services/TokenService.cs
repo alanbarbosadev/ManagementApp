@@ -1,5 +1,5 @@
-﻿using ManagementApp.Application.Models;
-using ManagementApp.Application.Services;
+﻿using ManagementApp.Application.Services;
+using ManagementApp.Application.Shared;
 using ManagementApp.Domain.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;

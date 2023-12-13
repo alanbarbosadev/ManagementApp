@@ -1,36 +1,32 @@
-﻿using AutoMapper;
-using ManagementApp.Api.ViewModels.Position;
-using ManagementApp.Application.Repositories;
-using ManagementApp.Domain.Models;
+﻿using ManagementApp.Application.Features.Positions.Commands.CreatePosition;
+using ManagementApp.Application.Features.Positions.Queries.GetAllPositions;
+using ManagementApp.Application.Shared.Dtos;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApp.Api.Controllers
 {
     public class PositionController : BaseApiController
     {
-        private readonly IRepository<Position> _positionRepository;
-        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public PositionController(IRepository<Position> positionRepository, IMapper mapper)
+        public PositionController(IMediator mediator)
         {
-            _positionRepository = positionRepository;
-            _mapper = mapper; 
+            _mediator = mediator;
         }
 
         [HttpGet()]
-        public async Task<ActionResult<IReadOnlyList<Position>>> GetAllPositions()
+        public async Task<ActionResult<IReadOnlyList<PositionDto>>> GetAllPositions()
         {
-            return Ok(_mapper.Map<IReadOnlyList<PositionViewModel>>(await _positionRepository.GetAllAsync()));
+            return Ok(await _mediator.Send(new GetAllPositionsQuery()));
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<PositionViewModel>> CreatePosition(CreatePositionViewModel createPositionViewModel)
+        public async Task<ActionResult> CreatePosition(CreatePositionCommand createPositionCommand)
         {
-            var position = _mapper.Map<Position>(createPositionViewModel);
+            await _mediator.Send(createPositionCommand);
 
-            await _positionRepository.AddAsync(position);
-
-            return Ok(_mapper.Map<PositionViewModel>(position));
+            return NoContent();
         }
     }
 }

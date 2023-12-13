@@ -1,5 +1,7 @@
-﻿using ManagementApp.Application.Models;
+﻿using ManagementApp.Application.Features.Auth.Commands.Register;
+using ManagementApp.Application.Features.Auth.Queries.Login;
 using ManagementApp.Application.Services;
+using ManagementApp.Application.Shared;
 using ManagementApp.Domain.Exceptions;
 using ManagementApp.Domain.Models.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -24,7 +26,7 @@ namespace ManagementApp.Infrastructure.Services
             _jwtSettings = jwtSettings.Value;
         }
 
-        public async Task<AuthResponse> Login(AuthRequest authRequest)
+        public async Task<LoginResponse> Login(LoginRequest authRequest)
         {
             var appUser = await _userManager.FindByEmailAsync(authRequest.Email);
 
@@ -42,7 +44,7 @@ namespace ManagementApp.Infrastructure.Services
 
             JwtSecurityToken jwtSecurityToken = await _tokenService.GenerateToken(appUser, _jwtSettings);
 
-            return new AuthResponse()
+            return new LoginResponse()
             {
                 Id = appUser.Id,
                 UserName = appUser.UserName,

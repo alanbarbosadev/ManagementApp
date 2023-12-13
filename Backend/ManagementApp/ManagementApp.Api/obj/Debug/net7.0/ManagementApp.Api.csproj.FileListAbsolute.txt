@@ -168,3 +168,8 @@ C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\
 C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\obj\Debug\net7.0\ManagementApp.Api.pdb
 C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\obj\Debug\net7.0\ManagementApp.Api.genruntimeconfig.cache
 C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\obj\Debug\net7.0\ref\ManagementApp.Api.dll
+C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\MediatR.dll
+C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\MediatR.Contracts.dll
+C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
