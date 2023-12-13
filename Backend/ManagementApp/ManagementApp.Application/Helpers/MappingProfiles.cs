@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using ManagementApp.Application.Features.Departments.Commands.CreateDepartment;
-using ManagementApp.Application.Features.Employees.Commands.CreateEmployee;
-using ManagementApp.Application.Features.Positions.Commands.CreatePosition;
-using ManagementApp.Application.Shared.Dtos;
+using ManagementApp.Application.Shared.Dtos.Departments;
+using ManagementApp.Application.Shared.Dtos.Employees;
+using ManagementApp.Application.Shared.Dtos.Positions;
 using ManagementApp.Domain.Models;
 
 namespace ManagementApp.Application.Helpers
@@ -11,14 +10,14 @@ namespace ManagementApp.Application.Helpers
     {
         public MappingProfiles()
         {
-            CreateMap<CreateEmployeeCommand, Employee>();
+            CreateMap<CreateEmployeeDto, Employee>();
             CreateMap<Employee, EmployeeDto>()
                 .ForMember(dest => dest.Age, opt => opt.MapFrom<EmployeeAgeResolver>())
                 .ForMember(dest => dest.Department, opt => opt.MapFrom(src => src.Department.Name))
                 .ForMember(dest => dest.Position, opt => opt.MapFrom(src => src.Position.Name));
-            CreateMap<CreateDepartmentCommand, Department>();
+            CreateMap<CreateDepartmentDto, Department>();
             CreateMap<Department, DepartmentDto>();
-            CreateMap<CreatePositionCommand, Position>();
+            CreateMap<CreatePositionDto, Position>();
             CreateMap<Position, PositionDto>();
         }
     }

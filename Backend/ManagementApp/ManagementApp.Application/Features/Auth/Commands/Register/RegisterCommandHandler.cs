@@ -1,9 +1,10 @@
-﻿using ManagementApp.Application.Services;
+﻿using ManagementApp.Application.Helpers;
+using ManagementApp.Application.Services;
 using MediatR;
 
 namespace ManagementApp.Application.Features.Auth.Commands.Register
 {
-    public class RegisterCommandHandler : IRequestHandler<RegisterCommand, RegisterResponse>
+    public class RegisterCommandHandler : IRequestHandler<RegisterCommand, Result<RegisterResponse>>
     {
         private readonly IAuthService _authService;
 
@@ -12,7 +13,7 @@ namespace ManagementApp.Application.Features.Auth.Commands.Register
             _authService = authService;
         }
 
-        public async Task<RegisterResponse> Handle(RegisterCommand request, CancellationToken cancellationToken)
+        public async Task<Result<RegisterResponse>> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
             return await _authService.Register(request.registerRequest);
         }

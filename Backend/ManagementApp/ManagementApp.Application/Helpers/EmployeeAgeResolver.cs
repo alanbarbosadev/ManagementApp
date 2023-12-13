@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ManagementApp.Application.Shared.Dtos;
+using ManagementApp.Application.Shared.Dtos.Employees;
 using ManagementApp.Domain.Models;
 
 namespace ManagementApp.Application.Helpers

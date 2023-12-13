@@ -1,7 +1,8 @@
-﻿using ManagementApp.Application.Shared.Dtos;
+﻿using ManagementApp.Application.Helpers;
+using ManagementApp.Application.Shared.Dtos.Departments;
 using MediatR;
 
 namespace ManagementApp.Application.Features.Departments.Queries.GetAllDepartments
 {
-    public record GetAllDepartmentsQuery : IRequest<IReadOnlyList<DepartmentDto>>;
+    public record GetAllDepartmentsQuery : IRequest<Result<IReadOnlyList<DepartmentDto>>>;
 }

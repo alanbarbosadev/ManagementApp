@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
+using ManagementApp.Application.Helpers;
 using ManagementApp.Application.Repositories;
-using ManagementApp.Application.Shared.Dtos;
+using ManagementApp.Application.Shared.Dtos.Departments;
 using ManagementApp.Domain.Models;
 using MediatR;
 
 namespace ManagementApp.Application.Features.Departments.Queries.GetAllDepartments
 {
-    public class GetAllDepartmentsQueryHandler : IRequestHandler<GetAllDepartmentsQuery, IReadOnlyList<DepartmentDto>>
+    public class GetAllDepartmentsQueryHandler : IRequestHandler<GetAllDepartmentsQuery, Result<IReadOnlyList<DepartmentDto>>>
     {
         private readonly IRepository<Department> _departmentRepository;
         private readonly IMapper _mapper;
@@ -17,11 +18,9 @@ namespace ManagementApp.Application.Features.Departments.Queries.GetAllDepartmen
             _mapper = mapper;
         }
 
-        public async Task<IReadOnlyList<DepartmentDto>> Handle(GetAllDepartmentsQuery request, CancellationToken cancellationToken)
+        public async Task<Result<IReadOnlyList<DepartmentDto>>> Handle(GetAllDepartmentsQuery request, CancellationToken cancellationToken)
         {
-            var departments = _mapper.Map<IReadOnlyList<DepartmentDto>>(await _departmentRepository.GetAllAsync());
-
-            return departments;
+            return Result<IReadOnlyList<DepartmentDto>>.Success(_mapper.Map<IReadOnlyList<DepartmentDto>>(await _departmentRepository.GetAllAsync()));
         }
     }
 }

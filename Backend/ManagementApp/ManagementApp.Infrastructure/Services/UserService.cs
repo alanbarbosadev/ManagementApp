@@ -37,7 +37,7 @@ namespace ManagementApp.Infrastructure.Services
 
             if (tokenValidTo < DateTime.UtcNow)
             {
-                throw new TokenExpiredException();
+                throw new TokenExpiredException("Token expired!");
             }
         }
     }

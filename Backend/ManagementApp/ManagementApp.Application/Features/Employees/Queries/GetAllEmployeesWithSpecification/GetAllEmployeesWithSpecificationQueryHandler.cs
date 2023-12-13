@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using ManagementApp.Application.Helpers;
 using ManagementApp.Application.Repositories;
-using ManagementApp.Application.Shared.Dtos;
+using ManagementApp.Application.Shared.Dtos.Employees;
 using ManagementApp.Application.Specifications.Employees;
 using ManagementApp.Domain.Models;
 using MediatR;
 
 namespace ManagementApp.Application.Features.Employees.Queries.GetAllEmployeesWithSpecification
 {
-    public class GetAllEmployeesWithSpecificationQueryHandler : IRequestHandler<GetAllEmployeesWithSpecificationQuery, Pagination<EmployeeDto>>
+    public class GetAllEmployeesWithSpecificationQueryHandler : IRequestHandler<GetAllEmployeesWithSpecificationQuery, Result<Pagination<EmployeeDto>>>
     {
         private readonly IRepository<Employee> _employeeRepository;
         private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ namespace ManagementApp.Application.Features.Employees.Queries.GetAllEmployeesWi
             _mapper = mapper;
         }
 
-        public async Task<Pagination<EmployeeDto>> Handle(GetAllEmployeesWithSpecificationQuery request, CancellationToken cancellationToken)
+        public async Task<Result<Pagination<EmployeeDto>>> Handle(GetAllEmployeesWithSpecificationQuery request, CancellationToken cancellationToken)
         {
             var specification = new EmployeesWithDepartmentAndPositionSpecification(request.specificationParams);
 
@@ -29,7 +29,8 @@ namespace ManagementApp.Application.Features.Employees.Queries.GetAllEmployeesWi
 
             var count = await _employeeRepository.CountAsync(specificationForCount);
 
-            return new Pagination<EmployeeDto>(request.specificationParams.CurrentPage, request.specificationParams.PageSize, count, employees);
+            return Result<Pagination<EmployeeDto>>
+                .Success(new Pagination<EmployeeDto>(request.specificationParams.CurrentPage, request.specificationParams.PageSize, count, employees));
         }
     }
 }

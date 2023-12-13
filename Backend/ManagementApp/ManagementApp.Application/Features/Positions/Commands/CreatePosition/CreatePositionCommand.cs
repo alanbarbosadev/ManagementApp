@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using ManagementApp.Application.Helpers;
+using ManagementApp.Application.Shared.Dtos.Positions;
+using MediatR;
 
 namespace ManagementApp.Application.Features.Positions.Commands.CreatePosition
 {
-    public record CreatePositionCommand(string Name) : IRequest<Unit>;
+    public record CreatePositionCommand(CreatePositionDto positionDto) : IRequest<Result<Unit>>;
 }

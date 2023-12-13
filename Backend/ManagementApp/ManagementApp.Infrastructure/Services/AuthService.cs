@@ -1,5 +1,6 @@
 ﻿using ManagementApp.Application.Features.Auth.Commands.Register;
 using ManagementApp.Application.Features.Auth.Queries.Login;
+using ManagementApp.Application.Helpers;
 using ManagementApp.Application.Services;
 using ManagementApp.Application.Shared;
 using ManagementApp.Domain.Exceptions;
@@ -26,7 +27,7 @@ namespace ManagementApp.Infrastructure.Services
             _jwtSettings = jwtSettings.Value;
         }
 
-        public async Task<LoginResponse> Login(LoginRequest authRequest)
+        public async Task<Result<LoginResponse>> Login(LoginRequest authRequest)
         {
             var appUser = await _userManager.FindByEmailAsync(authRequest.Email);
 
@@ -44,15 +45,17 @@ namespace ManagementApp.Infrastructure.Services
 
             JwtSecurityToken jwtSecurityToken = await _tokenService.GenerateToken(appUser, _jwtSettings);
 
-            return new LoginResponse()
+            var loginResponse = new LoginResponse()
             {
                 Id = appUser.Id,
                 UserName = appUser.UserName,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
             };
+
+            return Result<LoginResponse>.Success(loginResponse);
         }
 
-        public async Task<RegisterResponse> Register(RegisterRequest registerRequest)
+        public async Task<Result<RegisterResponse>> Register(RegisterRequest registerRequest)
         {
             var appUser = new AppUser()
             {
@@ -70,12 +73,14 @@ namespace ManagementApp.Infrastructure.Services
 
                 JwtSecurityToken jwtSecurityToken = await _tokenService.GenerateToken(appUser, _jwtSettings);
 
-                return new RegisterResponse()
+                var registerResponse = new RegisterResponse()
                 {
                     Id = appUser.Id,
                     UserName = appUser.UserName,
                     Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
                 };
+
+                return Result<RegisterResponse>.Success(registerResponse);
             }
             else
             {
@@ -86,7 +91,7 @@ namespace ManagementApp.Infrastructure.Services
                     errorResponse.AppendLine(error.Description);
                 }
 
-                throw new Exception(errorResponse.ToString());
+                return Result<RegisterResponse>.Failed(errorResponse.ToString());
             }
         }
     }

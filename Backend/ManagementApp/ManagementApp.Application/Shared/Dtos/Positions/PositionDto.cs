@@ -1,4 +1,4 @@
-﻿namespace ManagementApp.Application.Shared.Dtos
+﻿namespace ManagementApp.Application.Shared.Dtos.Positions
 {
     public class PositionDto
     {

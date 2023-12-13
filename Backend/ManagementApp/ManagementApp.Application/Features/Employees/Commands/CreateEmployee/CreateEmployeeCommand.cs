@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using ManagementApp.Application.Helpers;
+using ManagementApp.Application.Shared.Dtos.Employees;
+using MediatR;
 
 namespace ManagementApp.Application.Features.Employees.Commands.CreateEmployee
 {
-    public record CreateEmployeeCommand(string Name, decimal Salary, DateTime Birthday, Guid DepartmentId, Guid PositionId) : IRequest<Unit>;
+    public record CreateEmployeeCommand(CreateEmployeeDto employeeDto) : IRequest<Result<Unit>>;
 }

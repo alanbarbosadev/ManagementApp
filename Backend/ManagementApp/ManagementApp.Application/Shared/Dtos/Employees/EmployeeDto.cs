@@ -1,4 +1,4 @@
-﻿namespace ManagementApp.Application.Shared.Dtos
+﻿namespace ManagementApp.Application.Shared.Dtos.Employees
 {
     public class EmployeeDto
     {

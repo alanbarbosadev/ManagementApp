@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using ManagementApp.Application.Helpers;
 using ManagementApp.Application.Repositories;
 using ManagementApp.Domain.Models;
 using MediatR;
 
 namespace ManagementApp.Application.Features.Departments.Commands.CreateDepartment
 {
-    public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, Unit>
+    public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, Result<Unit>>
     {
         private readonly IRepository<Department> _departmentRepository;
         private readonly IMapper _mapper;
@@ -16,13 +17,20 @@ namespace ManagementApp.Application.Features.Departments.Commands.CreateDepartme
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Unit>> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
         {
-            var department = _mapper.Map<Department>(request);
+            var department = _mapper.Map<Department>(request.departmentDto);
 
-            await _departmentRepository.AddAsync(department);
+            _departmentRepository.AddAsync(department);
 
-            return Unit.Value;
+            var hasChanges = await _departmentRepository.SaveChangesAsync();
+
+            if (await _departmentRepository.SaveChangesAsync())
+            {
+                return Result<Unit>.Success(Unit.Value);
+            }
+                
+            return Result<Unit>.Failed("Failed to insert a new department!");
         }
     }
 }

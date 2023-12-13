@@ -10,7 +10,7 @@ namespace ManagementApp.Application.Repositories
         Task<IReadOnlyList<T>> GetAllWithSpecificationAsync(IBaseSpecification<T> specification);
         Task<T> GetByIdWithSpecificationAsync(IBaseSpecification<T> specification);
         Task<int> CountAsync(IBaseSpecification<T> specification);
-        Task<T> AddAsync(T entity);
-        Task SaveChangesAsync();
+        void AddAsync(T entity);
+        Task<bool> SaveChangesAsync();
     }
 }

@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using ManagementApp.Application.Helpers;
 using ManagementApp.Application.Repositories;
 using ManagementApp.Domain.Models;
 using MediatR;
 
 namespace ManagementApp.Application.Features.Employees.Commands.CreateEmployee
 {
-    public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand, Unit>
+    public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand, Result<Unit>>
     {
         private readonly IRepository<Employee> _employeeRepository;
         private readonly IMapper _mapper;
@@ -16,13 +17,20 @@ namespace ManagementApp.Application.Features.Employees.Commands.CreateEmployee
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Unit>> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employee = _mapper.Map<Employee>(request);
+            var employee = _mapper.Map<Employee>(request.employeeDto);
 
-            await _employeeRepository.AddAsync(employee);
+            _employeeRepository.AddAsync(employee);
 
-            return Unit.Value;
+            var hasChanges = await _employeeRepository.SaveChangesAsync();
+
+            if (hasChanges)
+            {
+                return Result<Unit>.Success(Unit.Value);
+            }
+
+            return Result<Unit>.Failed("Failed to insert a new employee");
         }
     }
 }

@@ -43,18 +43,14 @@ namespace ManagementApp.Infrastructure.Repositories
             return await ApplySpecification(specification).CountAsync();
         }
 
-        public async Task<T> AddAsync(T entity)
+        public void AddAsync(T entity)
         {
             _context.Add(entity);
-
-            await SaveChangesAsync();
-
-            return entity;
         }
 
-        public async Task SaveChangesAsync()
+        public async Task<bool> SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
         private IQueryable<T> ApplySpecification(IBaseSpecification<T> specification)

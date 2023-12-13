@@ -1,10 +1,12 @@
-﻿using ManagementApp.Api.Errors;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using ManagementApp.Api.Errors;
+using ManagementApp.Application.Features.Auth.Commands.Register;
 using ManagementApp.Application.Repositories;
 using ManagementApp.Infrastructure.DataContext;
 using ManagementApp.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace ManagementApp.Api.Extensions
 {
@@ -17,6 +19,8 @@ namespace ManagementApp.Api.Extensions
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
             services.AddCors(options => options.AddPolicy("ManagementAppPolicy", policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+            services.AddFluentValidationAutoValidation();
+            services.AddValidatorsFromAssemblyContaining<RegisterCommandValidator>();
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>

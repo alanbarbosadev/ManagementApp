@@ -173,3 +173,4 @@ C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\
 C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\MediatR.dll
 C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\MediatR.Contracts.dll
 C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Alan Barbosa\Desktop\ManagementApp\ManagementApp\Backend\ManagementApp\ManagementApp.Api\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
