@@ -48,7 +48,7 @@ namespace ManagementApp.Infrastructure.Services
             var loginResponse = new LoginResponse()
             {
                 Id = appUser.Id,
-                UserName = appUser.UserName,
+                DisplayName = appUser.DisplayName,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
             };
 
@@ -76,7 +76,7 @@ namespace ManagementApp.Infrastructure.Services
                 var registerResponse = new RegisterResponse()
                 {
                     Id = appUser.Id,
-                    UserName = appUser.UserName,
+                    DisplayName = appUser.DisplayName,
                     Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
                 };
 
