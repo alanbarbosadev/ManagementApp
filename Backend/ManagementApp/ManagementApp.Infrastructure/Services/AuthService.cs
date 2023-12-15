@@ -59,8 +59,8 @@ namespace ManagementApp.Infrastructure.Services
         {
             var appUser = new AppUser()
             {
-                UserName = registerRequest.UserName,
                 DisplayName = registerRequest.DisplayName,
+                UserName = registerRequest.UserName,
                 Email = registerRequest.Email,
                 EmailConfirmed = true
             };

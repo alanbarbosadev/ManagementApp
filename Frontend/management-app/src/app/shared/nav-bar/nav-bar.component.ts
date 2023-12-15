@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
   }
 
   setLoggedUser(): void {
-    const user: User = JSON.parse(localStorage.getItem('user') || '');
+    const user: User = JSON.parse(localStorage.getItem('user') || 'null');
     this.authService.setLoggedUser(user);
   }
 

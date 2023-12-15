@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { EmployeesModule } from './modules/employees/employees.module';
+import { ActivitiesModule } from './modules/activities/activities.module';
+import { DepartmentsModule } from './modules/departments/departments.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,8 +16,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    AuthModule,
     SharedModule,
+    AuthModule,
+    EmployeesModule,
+    ActivitiesModule,
+    DepartmentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

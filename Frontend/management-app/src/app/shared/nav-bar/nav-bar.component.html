@@ -16,16 +16,28 @@
       <ng-container *ngIf="authService.loggedUser$ | async as user"
         ><ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Employees</a>
+            <a
+              class="nav-link"
+              routerLink="/employees/list"
+              routerLinkActive="active"
+              >Employees</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Activities</a>
+            <a
+              class="nav-link"
+              routerLink="/activities/list"
+              routerLinkActive="active"
+              >Activities</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Departments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Positions</a>
+            <a
+              class="nav-link"
+              routerLink="/departments/list"
+              routerLinkActive="active"
+              >Departments</a
+            >
           </li>
         </ul>
         <div class="nav-item dropdown">

@@ -14,6 +14,20 @@ const routes: Routes = [
         (m) => m.EmployeesModule
       ),
   },
+  {
+    path: 'activities',
+    loadChildren: () =>
+      import('./modules/activities/activities.module').then(
+        (m) => m.ActivitiesModule
+      ),
+  },
+  {
+    path: 'departments',
+    loadChildren: () =>
+      import('./modules/departments/departments.module').then(
+        (m) => m.DepartmentsModule
+      ),
+  },
 ];
 
 @NgModule({
