@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Pagination } from 'src/app/core/models/Pagination';
+import { Pagination } from 'src/app/core/models/pagination';
+import { Department } from 'src/app/core/models/department';
 import { Employee } from 'src/app/core/models/employee.mode';
+import { Position } from 'src/app/core/models/position';
+import { DepartmentService } from 'src/app/core/services/department.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
+import { PositionService } from 'src/app/core/services/position.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -10,19 +14,52 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
+  departments: Department[] = [];
+  positions: Position[] = [];
+  departmentIdSelected?: string;
+  positionIdSelected?: string;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private departmentService: DepartmentService,
+    private positionService: PositionService
+  ) {}
 
   ngOnInit(): void {
     this.loadEmployees();
+    this.loadDepartments();
+    this.loadPositions();
   }
 
   loadEmployees(): void {
     this.employeeService
-      .getEmployees()
+      .getEmployees(this.departmentIdSelected, this.positionIdSelected)
       .subscribe((response: Pagination<Employee>) => {
         this.employees = response.data;
-        console.log(this.employees);
       });
+  }
+
+  loadDepartments(): void {
+    this.departmentService
+      .getDepartments()
+      .subscribe((response: Department[]) => {
+        this.departments = [{ id: '0', name: 'All' }, ...response];
+      });
+  }
+
+  loadPositions(): void {
+    this.positionService.getPositions().subscribe((response: Position[]) => {
+      this.positions = [{ id: '0', name: 'All' }, ...response];
+    });
+  }
+
+  getDepartmentId(departmentId: string): void {
+    this.departmentIdSelected = departmentId;
+    this.loadEmployees();
+  }
+
+  getPositionId(positionId: string): void {
+    this.positionIdSelected = positionId;
+    this.loadEmployees();
   }
 }

@@ -20,24 +20,24 @@
               class="nav-link"
               routerLink="/employees/list"
               routerLinkActive="active"
-              >Employees</a
-            >
+              >Employees <i class="bi bi-people"></i
+            ></a>
           </li>
           <li class="nav-item">
             <a
               class="nav-link"
               routerLink="/activities/list"
               routerLinkActive="active"
-              >Activities</a
-            >
+              >Activities <i class="bi bi-journal-richtext"></i
+            ></a>
           </li>
           <li class="nav-item">
             <a
               class="nav-link"
               routerLink="/departments/list"
               routerLinkActive="active"
-              >Departments</a
-            >
+              >Departments <i class="bi bi-building"></i
+            ></a>
           </li>
         </ul>
         <div class="nav-item dropdown">
@@ -51,9 +51,13 @@
             >Hello, {{ user.displayName }}</a
           >
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Edit Profile</a>
+            <a class="dropdown-item" href="#"
+              ><i class="bi bi-person-circle"></i> Edit Profile</a
+            >
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Logout</a>
+            <a class="dropdown-item" (click)="logout()"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
           </div>
         </div>
       </ng-container>
