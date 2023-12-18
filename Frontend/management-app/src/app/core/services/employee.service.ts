@@ -13,13 +13,22 @@ export class EmployeeService {
 
   getEmployees(
     departmentId?: string,
-    positionId?: string
+    positionId?: string,
+    sort?: string
   ): Observable<Pagination<Employee>> {
     let params = new HttpParams();
 
-    if (departmentId) params = params.append('departmentId', departmentId);
+    if (departmentId && departmentId != '0') {
+      params = params.append('departmentId', departmentId);
+    }
 
-    if (positionId) params = params.append('positionId', positionId);
+    if (positionId && positionId != '0') {
+      params = params.append('positionId', positionId);
+    }
+
+    if (sort) {
+      params = params.append('sort', sort);
+    }
 
     return this.http.get<Pagination<Employee>>(
       `${environment.baseApiUrl}Employee`,

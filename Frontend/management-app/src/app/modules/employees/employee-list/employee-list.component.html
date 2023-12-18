@@ -1,7 +1,7 @@
 <div class="container text-end mt-3">
   <div class="row">
     <div class="col">
-      <button type="button" class="btn btn-dark">New Employee</button>
+      <button type="button" class="btn btn-success">New Employee</button>
     </div>
   </div>
 </div>
@@ -10,24 +10,44 @@
     <div class="col-3 text-center">
       <h5 class="align-center">Order By</h5>
       <div class="form-group mt-3">
-        <select class="form-select">
-          <option>Name</option>
-          <option>Department</option>
-          <option>Position</option>
+        <select
+          class="form-select"
+          [(ngModel)]="sort"
+          (change)="onOrderBySelected()"
+        >
+          <option value="byName" selected>Name</option>
+          <option value="byDepartment">Department</option>
+          <option value="byPosition">Position</option>
         </select>
       </div>
       <h5 class="align-center mt-5">Departments</h5>
       <div class="form-group mt-3">
-        <select class="form-select">
-          <option *ngFor="let department of departments">
+        <select
+          class="form-select"
+          [(ngModel)]="departmentIdSelected"
+          (change)="onDepartmentSelected()"
+        >
+          <option
+            *ngFor="let department of departments"
+            [selected]="department.id == '0'"
+            [value]="department.id"
+          >
             {{ department.name }}
           </option>
         </select>
       </div>
       <h5 class="align-center mt-5">Positions</h5>
       <div class="form-group mt-3">
-        <select class="form-select">
-          <option *ngFor="let position of positions">
+        <select
+          class="form-select"
+          [(ngModel)]="positionIdSelected"
+          (change)="onPositionSelected()"
+        >
+          <option
+            *ngFor="let position of positions"
+            [selected]="position.id == '0'"
+            [value]="position.id"
+          >
             {{ position.name }}
           </option>
         </select>
@@ -41,8 +61,9 @@
             class="form-control"
             placeholder="Search"
             aria-describedby="search-button"
+            [(ngModel)]="search"
           />
-          <button class="btn btn-dark" type="button" id="search-button">
+          <button class="btn btn-success" type="button" id="search-button">
             <i class="bi bi-search"></i>
           </button>
         </div>

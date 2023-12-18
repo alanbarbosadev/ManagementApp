@@ -16,8 +16,13 @@ export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   departments: Department[] = [];
   positions: Position[] = [];
-  departmentIdSelected?: string;
-  positionIdSelected?: string;
+  currentPage?: number;
+  pageSize?: number;
+  count?: number;
+  departmentIdSelected?: string = '0';
+  positionIdSelected?: string = '0';
+  sort?: string = 'byName';
+  search?: string;
 
   constructor(
     private employeeService: EmployeeService,
@@ -53,13 +58,15 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  getDepartmentId(departmentId: string): void {
-    this.departmentIdSelected = departmentId;
+  onOrderBySelected(): void {
     this.loadEmployees();
   }
 
-  getPositionId(positionId: string): void {
-    this.positionIdSelected = positionId;
+  onDepartmentSelected(): void {
+    this.loadEmployees();
+  }
+
+  onPositionSelected(): void {
     this.loadEmployees();
   }
 }

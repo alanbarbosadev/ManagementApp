@@ -27,11 +27,11 @@ namespace ManagementApp.Application.Specifications.Employees
             {
                 switch (employeeSpecificationParams.Sort)
                 {
-                    case "departmentNameAsc":
+                    case "byDepartment":
                         AddOrderBy(x => x.Department.Name);
                         break;
-                    case "departmentNameDesc":
-                        AddOrderByDescending(x => x.Department.Name);
+                    case "byPosition":
+                        AddOrderBy(x => x.Position.Name);
                         break;
                     default:
                         AddOrderBy(x => x.Name);
