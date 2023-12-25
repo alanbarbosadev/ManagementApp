@@ -13,7 +13,7 @@ namespace ManagementApp.Application.Specifications.Employees
 
         public EmployeesWithDepartmentAndPositionSpecification(EmployeeSpecificationParams employeeSpecificationParams) 
             : base(x => 
-            (string.IsNullOrEmpty(employeeSpecificationParams.Sort) || x.Name.ToLower().Contains(employeeSpecificationParams.Sort)) 
+            (string.IsNullOrEmpty(employeeSpecificationParams.Search) || x.Name.ToLower().Contains(employeeSpecificationParams.Search)) 
             && (!employeeSpecificationParams.DepartmentId.HasValue || x.DepartmentId == employeeSpecificationParams.DepartmentId) 
             && (!employeeSpecificationParams.PositionId.HasValue || x.PositionId == employeeSpecificationParams.PositionId)
             )

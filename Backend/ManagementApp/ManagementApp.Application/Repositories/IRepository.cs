@@ -11,6 +11,7 @@ namespace ManagementApp.Application.Repositories
         Task<T> GetByIdWithSpecificationAsync(IBaseSpecification<T> specification);
         Task<int> CountAsync(IBaseSpecification<T> specification);
         void AddAsync(T entity);
+        void AddRangeAsync(IList<T> entities);
         Task<bool> SaveChangesAsync();
     }
 }

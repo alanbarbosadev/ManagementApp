@@ -1,5 +1,6 @@
 ﻿using ManagementApp.Api.Errors;
 using ManagementApp.Application.Features.Employees.Commands.CreateEmployee;
+using ManagementApp.Application.Features.Employees.Commands.CreateEmployees;
 using ManagementApp.Application.Features.Employees.Queries.GetAllEmployeesWithSpecification;
 using ManagementApp.Application.Features.Employees.Queries.GetEmployeeByIdWithSpecification;
 using ManagementApp.Application.Shared.Dtos.Employees;
@@ -33,6 +34,14 @@ namespace ManagementApp.Api.Controllers
         public async Task<IActionResult> CreateEmployee([FromBody] CreateEmployeeDto employeeDto)
         {
             return HandleResult(await Mediator.Send(new CreateEmployeeCommand(employeeDto)));
+        }
+
+        [HttpPost("range")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> CreateEmployees([FromBody] List<CreateEmployeeDto> employeesDtos)
+        {
+            return HandleResult(await Mediator.Send(new CreateEmployeesCommand(employeesDtos)));
         }
     }
 }

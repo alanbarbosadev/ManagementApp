@@ -48,6 +48,14 @@ namespace ManagementApp.Infrastructure.Repositories
             _context.Add(entity);
         }
 
+        public void AddRangeAsync(IList<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                _context.Add(entity);
+            }
+        }
+
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
