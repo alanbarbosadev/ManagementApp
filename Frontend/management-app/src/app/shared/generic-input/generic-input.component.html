@@ -1,0 +1,19 @@
+<div class="form-group">
+  <label class="form-label mt-4">{{ label | titlecase }}</label>
+  <input
+    type="{{ type }}"
+    class="form-control"
+    placeholder="Enter your {{ label }}"
+    autocomplete="off"
+    [formControl]="control"
+    [ngClass]="
+      control.touched ? (control.invalid ? 'is-invalid' : 'is-valid') : null
+    "
+  />
+  <span *ngIf="control.errors?.['required']" class="invalid-feedback"
+    >Enter your {{ label }}</span
+  >
+  <span *ngIf="control.errors?.['email']" class="invalid-feedback"
+    >Please, enter a valid email</span
+  >
+</div>

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/core/models/login.model';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -40,5 +45,13 @@ export class LoginComponent implements OnInit {
 
   cancel(): void {
     this.router.navigate(['']);
+  }
+
+  get emailFormControl(): FormControl {
+    return this.loginForm.get('email') as FormControl;
+  }
+
+  get passwordFormControl(): FormControl {
+    return this.loginForm.get('password') as FormControl;
   }
 }

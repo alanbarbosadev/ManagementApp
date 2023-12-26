@@ -2,7 +2,7 @@
 {
     public class ApiValidationErrorResponse : ApiResponse
     {
-        public ApiValidationErrorResponse(int statusCode, IEnumerable<string> errors) : base(400)
+        public ApiValidationErrorResponse(IEnumerable<string> errors) : base(400)
         {
             Errors = errors;
         }

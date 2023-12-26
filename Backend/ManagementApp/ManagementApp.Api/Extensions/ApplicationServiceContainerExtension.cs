@@ -31,7 +31,7 @@ namespace ManagementApp.Api.Extensions
                         .Select(x => x.ErrorMessage)
                         .ToArray();
 
-                    var errorsResponse = new ApiValidationErrorResponse(400, errors)
+                    var errorsResponse = new ApiValidationErrorResponse(errors)
                     {
                         Errors = errors
                     };

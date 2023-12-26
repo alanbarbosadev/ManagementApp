@@ -3,32 +3,16 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <fieldset>
         <legend class="h2 text-center my-5">Sign In</legend>
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4"
-            >Email Address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your email"
-            formControlName="email"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1" class="form-label mt-4"
-            >Password</label
-          >
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            placeholder="Enter your password"
-            autocomplete="off"
-            formControlName="password"
-          />
-        </div>
+        <app-generic-input
+          [type]="'email'"
+          [label]="'email'"
+          [formControl]="emailFormControl"
+        ></app-generic-input>
+        <app-generic-input
+          [type]="'password'"
+          [label]="'password'"
+          [formControl]="passwordFormControl"
+        ></app-generic-input>
         <div class="mt-3">
           <button type="submit" class="btn btn-success me-2">Sign In</button>
           <button type="button" class="btn btn-danger" (click)="cancel()">
